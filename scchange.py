@@ -1,19 +1,36 @@
 
-
-#will try to take screenshot on any change in the website 
-
 import time
 import hashlib
 from urllib.request import urlopen, Request
-
-from selenium import webdriver
 from time import sleep
+from selenium import webdriver
+import datetime
 
-link = "https://twitter.com/_r_netsec"
+
+a = "https://news.ycombinator.com/news"
+#a = input("Enter the URL to take screenshot--:\n") #Taking input from the user
+
 
 # setting the URL you want to monitor
-url = Request(link,
+url = Request(a,
 			headers={'User-Agent': 'Mozilla/5.0'})
+
+
+
+def capture():
+
+	driver = webdriver.Chrome(executable_path=r"/home/lab/git/AutomateScreenshot/chromedriver") #add the path of your chromium headless browser. 
+	driver.get(a)
+
+	#Giving the file name of screenshot
+	date_stamp = str(datetime.datetime.now()).split('.')[0]
+	date_stamp = date_stamp.replace(" ", "_").replace(":", "_").replace("-", "_")
+	file_name = date_stamp + ".png"
+	driver.save_screenshot(file_name)
+
+	driver.close() #closing the headless broweser.
+
+
 
 
 response = urlopen(url).read()
@@ -26,13 +43,11 @@ while True:
 	try:
 		# perform the get request and store it in a var
 		response = urlopen(url).read()
-		
 		# create a hash
 		currentHash = hashlib.sha224(response).hexdigest()
-		
 		# wait for 5 seconds
 		time.sleep(5)
-		
+
 		# perform the get request
 		response = urlopen(url).read()
 		
@@ -45,36 +60,15 @@ while True:
 
 		# if something changed in the hashes
 		else:
-
 			# notify
-			print("something changed taking a screenshot")
-
-
-			driver = webdriver.Chrome(executable_path=r"/home/lab/git/AutomateScreenshot/chromedriver") #add the path of your chromium headless browser. 
-
-
-			#The url that we want to take Screenshot
-			driver.get(link)
-
-			#Giving the file name of screenshot
-			driver.save_screenshot(r"screenshot.png")
-
-			driver.close() #closing the headless broweser.
-
-
-
-
-			# again read the website
+			print("Something has changed in the URL")
 			response = urlopen(url).read()
-
-			# create a hash
+			capture()
 			currentHash = hashlib.sha224(response).hexdigest()
-
-			# wait for 30 seconds
-			time.sleep(30)
+			time.sleep(20)
 			continue
 			
 	# To handle exceptions
 	except Exception as e:
-		print("error")
+		print("ERROR")
 
