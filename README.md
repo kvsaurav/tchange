@@ -1,5 +1,27 @@
+```
+
+    ███      ▄████████    ▄█    █▄       ▄████████ ███▄▄▄▄      ▄██████▄     ▄████████ 
+▀█████████▄ ███    ███   ███    ███     ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ 
+   ▀███▀▀██ ███    █▀    ███    ███     ███    ███ ███   ███   ███    █▀    ███    █▀  
+    ███   ▀ ███         ▄███▄▄▄▄███▄▄   ███    ███ ███   ███  ▄███         ▄███▄▄▄     
+    ███     ███        ▀▀███▀▀▀▀███▀  ▀███████████ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     
+    ███     ███    █▄    ███    ███     ███    ███ ███   ███   ███    ███   ███    █▄  
+    ███     ███    ███   ███    ███     ███    ███ ███   ███   ███    ███   ███    ███ 
+   ▄████▀   ████████▀    ███    █▀      ███    █▀   ▀█   █▀    ████████▀    ██████████ 
+                                                                                       
+                                                                                       
+                                                                                       
+                                                          -@4w4r44                             
+
+```
+
 # tchange
 **Tracking changes on websites and screenshot the change** 
+
+
+
+
+
 
 Tchange as in track change will track the website for changes and if it finds any new postings on the website it will screenshot it and will run in an endless loop. The intention behind this script is to track Threat actor's blogs and postings for Threat Intelligence. 
 
